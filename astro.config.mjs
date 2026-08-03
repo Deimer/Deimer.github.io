@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import siteConfig from './src/data/site-config';
 
-// https://astro.build/config
+// https://deimer.github.io/
 export default defineConfig({
     site: siteConfig.website,
     vite: {

@@ -6,14 +6,14 @@ const siteConfig: SiteConfig = {
     website: 'https://deimer.github.io',
     avatar: {
         src: avatar,
-        alt: 'Ethan Donovan'
+        alt: 'Deymer Villa Pedraza'
     },
-    title: 'Dante',
-    subtitle: 'Minimal Astro.js theme',
-    description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
+    title: 'Deymer Villa',
+    subtitle: 'Android & Mobile Software Engineer 👨‍💻',
+    description: 'Personal portfolio and tech blog focused on Android development, Kotlin, mobile architecture, and cross-platform solutions.',
     image: {
         src: '/dante-preview.jpg',
-        alt: 'Dante - Astro.js and Tailwind CSS theme'
+        alt: 'Deymer Villa - Android Developer Portfolio'
     },
     headerNavLinks: [
         {
@@ -53,24 +53,24 @@ const siteConfig: SiteConfig = {
     ],
     socialLinks: [
         {
-            text: 'Dribbble',
-            href: 'https://dribbble.com/'
+            text: 'GitHub',
+            href: 'https://github.com/deimer'
+        },
+        {
+            text: 'LinkedIn',
+            href: 'https://www.linkedin.com/in/deimer/'
         },
         {
             text: 'Instagram',
-            href: 'https://instagram.com/'
-        },
-        {
-            text: 'X/Twitter',
-            href: 'https://twitter.com/'
+            href: 'https://www.instagram.com/deimer.llosehp/'
         }
     ],
     hero: {
-        title: 'Hi There & Welcome to My Corner of the Web!',
-        text: "I'm **Ethan Donovan**, a web developer at Amazing Studio, dedicated to the realms of collaboration and artificial intelligence.\nMy approach involves embracing intuition, conducting just enough research, and leveraging aesthetics as a catalyst for exceptional products.\nI have a profound appreciation for top-notch software, visual design, and the principles of product-led growth.\n\nFeel free to explore some of my coding endeavors on [GitHub](https://github.com/JustGoodUI/dante-astro-theme) or follow me on [Twitter/X](https://twitter.com/justgoodui).",
+        title: "Hi There! I'm Deymer Villa 👋",
+        text: "I'm a **Systems Engineer** and **Android Developer** specializing in building robust, scalable, and high-performance native and cross-platform mobile applications.\n\nMy primary expertise focuses on **Kotlin, Jetpack Compose, Clean Architecture**, and modern software design patterns, complemented by experience in **Kotlin Multiplatform (KMP), Flutter, React Native**, and backend technologies like **Laravel, Python, and .NET**.\n\nFeel free to explore some of my code endeavors on [GitHub](https://github.com/deimer) or connect with me on [LinkedIn](https://www.linkedin.com/in/deimer/).",
         image: {
             src: hero,
-            alt: 'A person sitting at a desk in front of a computer'
+            alt: 'Deymer Villa workspace'
         },
         actions: [
             {
@@ -82,7 +82,7 @@ const siteConfig: SiteConfig = {
     subscribe: {
         enabled: true,
         title: 'Subscribe to Dante Newsletter',
-        text: 'One update per week. All the latest posts directly in your inbox.',
+        text: 'Articles and insights on Android development, Kotlin, and mobile architecture delivered straight to your inbox.',
         form: {
             action: '#'
         }
