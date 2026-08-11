@@ -80,7 +80,7 @@ const siteConfig: SiteConfig = {
         ]
     },
     subscribe: {
-        enabled: true,
+        enabled: false,
         title: 'Subscribe to Dante Newsletter',
         text: 'Articles and insights on Android development, Kotlin, and mobile architecture delivered straight to your inbox.',
         form: {
