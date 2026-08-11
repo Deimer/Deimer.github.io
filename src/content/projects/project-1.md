@@ -69,9 +69,11 @@ Design and implement a scalable, high-performance, multi-module Android applicat
 
 The codebase strictly enforces **Clean Architecture** and separation of concerns across **6 distinct Gradle modules**, controlling dependency boundaries and reducing build compilation times.
 
+<pre style="white-space: pre; font-family: monospace; font-size: 0.9rem; line-height: 1.4; overflow-x: auto;">
 app ──┬──> domain ──┬──> datasource ──┬──> network
       │             │                 └──> database
       └──> design-system
+</pre>
 
 ### Module Responsibilities
 
