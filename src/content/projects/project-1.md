@@ -69,7 +69,7 @@ Design and implement a scalable, high-performance, multi-module Android applicat
 
 The codebase strictly enforces **Clean Architecture** and separation of concerns across **6 distinct Gradle modules**, controlling dependency boundaries and reducing build compilation times.
 
-<pre style="white-space: pre; font-family: monospace; font-size: 0.9rem; line-height: 1.4; overflow-x: auto;">
+<pre style="white-space: pre; font-family: monospace; font-size: 0.85rem; line-height: 1.4; overflow-x: auto; background: #0d1117; color: #e6edf3; padding: 1rem; border: 1px solid #30363d; border-radius: 8px;">
 app ──┬──> domain ──┬──> datasource ──┬──> network
       │             │                 └──> database
       └──> design-system
@@ -84,7 +84,7 @@ app ──┬──> domain ──┬──> datasource ──┬──> network
 5. **`:design-system`**: Contains design tokens, color schemes, Material 3 typography, custom shapes, and reusable composables (`ProductCard`, `SearchField`, `EmptyStateWidget`, `ShimmerLoader`).
 6. **`:app`**: The application assembly point. Manages Hilt application graphs, UI screens (`Splash`, `Home`), Navigation3 configurations, ViewModels, and UI state management using MVI helpers.
 
-<pre style="white-space: pre; overflow-x: auto; font-family: monospace; font-size: 0.85rem; line-height: 1.4;">
+<pre style="white-space: pre; font-family: monospace; font-size: 0.85rem; line-height: 1.4; overflow-x: auto; background: #0d1117; color: #e6edf3; padding: 1rem; border: 1px solid #30363d; border-radius: 8px;">
 com.deymervilla.gapsistore
 ├── network/                  # :network module
 │   ├── api/                  # ApiService (Retrofit interfaces)
@@ -126,7 +126,7 @@ com.deymervilla.gapsistore
 
 The app mandates that raw network objects never leak into presentation components. All data undergoes mapping through intermediate data layers.
 
-<pre style="white-space: pre; font-family: monospace; font-size: 0.8rem; line-height: 1.25; overflow-x: auto;">
+<pre style="white-space: pre; font-family: monospace; font-size: 0.8rem; line-height: 1.3; overflow-x: auto; background: #0d1117; color: #e6edf3; padding: 1rem; border: 1px solid #30363d; border-radius: 8px;">
 +------------------+         +------------------+         +------------------+
 |   Axesso API     |  --->   |   ProductDTO     |  --->   |  Walmart Custom  |
 |   (JSON Payload) |         |  (Network Layer) |         |   Deserializer   |
