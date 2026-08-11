@@ -126,16 +126,18 @@ com.deymervilla.gapsistore
 
 The app mandates that raw network objects never leak into presentation components. All data undergoes mapping through intermediate data layers.
 
+<pre style="white-space: pre; font-family: monospace; font-size: 0.8rem; line-height: 1.25; overflow-x: auto;">
 +------------------+         +------------------+         +------------------+
 |   Axesso API     |  --->   |   ProductDTO     |  --->   |  Walmart Custom  |
 |   (JSON Payload) |         |  (Network Layer) |         |   Deserializer   |
 +------------------+         +------------------+         +------------------+
-|
-v
+                                                                   |
+                                                                   v
 +------------------+         +------------------+         +------------------+
 |  ProductModel    |  <---   |  ProductEntity   |  <---   |   Room Database  |
 |   (UI / Domain)  |         | (Database Layer) |         | (Single Source)  |
 +------------------+         +------------------+         +------------------+
+</pre>
 
 ---
 
