@@ -82,6 +82,7 @@ app ─┬─> domain ─┬─> datasource ─┬─> network
 5. **`:design-system`**: Contains design tokens, color schemes, Material 3 typography, custom shapes, and reusable composables (`ProductCard`, `SearchField`, `EmptyStateWidget`, `ShimmerLoader`).
 6. **`:app`**: The application assembly point. Manages Hilt application graphs, UI screens (`Splash`, `Home`), Navigation3 configurations, ViewModels, and UI state management using MVI helpers.
 
+<pre style="white-space: pre; overflow-x: auto; font-family: monospace; font-size: 0.85rem; line-height: 1.4;">
 com.deymervilla.gapsistore
 ├── network/                  # :network module
 │   ├── api/                  # ApiService (Retrofit interfaces)
@@ -115,6 +116,7 @@ com.deymervilla.gapsistore
     ├── utils/                # FlowExtensions & MVI state extensions
     ├── application/          # GAPSIStoreApplication
     └── main/                 # MainActivity
+</pre>
 
 ---
 
