@@ -2,42 +2,42 @@
 title: About
 seo:
   title: About Me
-  description: Learn more about the person behind the website and embark on a journey of inspiration and shared experiences.
+  description: Learn more about Deymer Villa, Systems Engineer and Mobile Software Engineer specialized in Android, Kotlin, and Cross-Platform development.
   image:
     src: '../../assets/images/about.jpeg'
-    alt: A person sitting at a desk in front of a computer
+    alt: Deymer Villa workspace
 ---
 
-![Alt text for image](../../assets/images/about.jpeg)
+![Deymer Villa](../../assets/images/about.jpeg)
 
-**Note!:** This about page is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+## Deymer Villa - Systems Engineer & Mobile Developer
 
-## Ethan Donovan - Web Developer based in Estonia
+**Greetings!** I'm Deymer Villa, a passionate **Systems Engineer** and **Android Software Engineer**. I specialize in building high-performance, scalable, and maintainable mobile applications, combining solid architecture principles with modern user interfaces.
 
-**Greetings!** I'm Ethan Donovan, a passionate web developer residing in the picturesque landscapes of [Estonia](https://en.wikipedia.org/wiki/Estonia). With a keen eye for design and a love for crafting seamless digital experiences, I bring a unique blend of creativity and technical expertise to the world of web development.
+## Core Technical Skills & Ecosystem
 
-## Skills and Expertise
+My primary area of expertise centers around native **Android Development** using **Kotlin** and **Java**. I focus on modern UI paradigms with **Jetpack Compose** and XML, backed by strong dependency injection and asynchronous programming frameworks like **Hilt**, **Dagger**, **Koin**, **Coroutines**, and **RxJava**.
 
-I specialize in front-end and back-end development, utilizing the latest technologies to build responsive and user-friendly websites. My proficiency includes **HTML**, **CSS**, **JavaScript**, and frameworks such as **Astro.js** for dynamic and interactive user interfaces. On the server side, I'm well-versed in Node.js and have experience with database management systems like MongoDB.
+To build versatile applications, I extend my skill set into cross-platform development with **Kotlin Multiplatform (KMP)**, **Flutter**, and **React Native**, along with iOS experience in **Swift**. On the backend and infrastructure side, I work with **Laravel**, **Python**, **.NET**, and the **Firebase Suite**, seamlessly integrating continuous deployment pipelines using **AWS**, **Bitrise**, **Jenkins**, **JFrog**, and **Docker**.
 
-## Innovation and Problem-Solving
+## Quality, Testing & Architecture
 
-I thrive on solving complex problems and transforming ideas into functional, elegant websites. Whether it's optimizing performance, implementing new features, or troubleshooting issues, I approach each challenge with enthusiasm and a commitment to delivering high-quality solutions.
+I firmly believe that good software is built on a foundation of reliability and maintainability. I actively apply **Clean Architecture** principles and modular design to keep codebases scalable and easy to refactor. Testing is a core part of my workflow—utilizing **JUnit**, **Mockk**, **Espresso**, and **Robolectric** to ensure code quality, prevent regressions, and deliver robust releases.
 
-## Global Perspective, Local Impact
+## Engineering Philosophy & Problem-Solving
 
-Living in Estonia has not only influenced my appreciation for nature and culture but has also shaped my approach to web development. I understand the importance of creating digital solutions that resonate with local audiences while maintaining a global perspective.
+I thrive on turning complex technical challenges into elegant, efficient solutions. Whether it's optimizing app startup times, managing background synchronization, modularizing large-scale codebases, or resolving intricate bugs under tight deadlines, I approach every engineering task with methodical rigor, attention to detail, and a commitment to high standards.
 
-## Continuous Learning
+## Leadership, Collaboration & Effective Communication
 
-The dynamic nature of the tech industry inspires me to stay up-to-date with the latest trends and advancements. I'm always eager to expand my skill set and embrace emerging technologies that enhance the functionality and aesthetics of the websites I create.
+Great software is rarely built in isolation. I place strong emphasis on cross-functional collaboration, working closely with UI/UX designers, backend engineers, product managers, and QA teams. I value clear, proactive communication—whether it's writing structured technical documentation, participating in code reviews, or translating business requirements into clear technical specifications. I strive to foster an environment of transparency, constructive feedback, and mutual growth within development teams.
 
-## Collaboration and Communication
+## Continuous Growth & Industry Adaptability
 
-I believe in the power of collaboration and effective communication. Whether working with clients, designers, or fellow developers, I value clear communication to ensure the success of every project.
+The mobile technology landscape moves at a rapid pace, and remaining adaptable is essential. I am constantly expanding my skill set, studying emerging software patterns, and exploring tools that streamline engineering workflows. This passion for continuous learning allows me to stay ahead of industry standards and deliver forward-looking solutions.
 
 ## Get in Touch
 
-Are you looking to elevate your online presence or bring your digital ideas to life? I'd love to hear from you! Feel free to reach out for collaboration, consultation, or just a friendly chat about all things web development.
+Whether you want to collaborate on a new project, review architecture design, or simply connect with a fellow software enthusiast, feel free to reach out!
 
 _Let's build something amazing together!_
