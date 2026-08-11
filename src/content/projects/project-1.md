@@ -4,7 +4,7 @@ description: An Android product search application built with modern Clean Archi
 publishDate: 'Aug 11 2026'
 seo:
   image:
-    src: '../../assets/images/project-gapsistore.jpg'
+    src: '../../assets/images/project-1.jpg'
     alt: GAPSIStore Android App Preview
 ---
 
