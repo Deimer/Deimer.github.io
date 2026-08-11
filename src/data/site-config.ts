@@ -81,7 +81,7 @@ const siteConfig: SiteConfig = {
     },
     subscribe: {
         enabled: false,
-        title: 'Subscribe to Dante Newsletter',
+        title: 'Subscribe to Deymer Newsletter',
         text: 'Articles and insights on Android development, Kotlin, and mobile architecture delivered straight to your inbox.',
         form: {
             action: '#'
