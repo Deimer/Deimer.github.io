@@ -1,61 +1,97 @@
 ---
-title: FitQuest - AR Fitness Adventure Game
-description: This web application encourages users to embark on thrilling adventures, complete challenges, and achieve fitness goals in an engaging virtual environment.
+title: 'InterData: Android Multi-Module & Version Sync Engine'
+description: A high-performance, multi-module Android application developed for Interrapidisimo, featuring dynamic API version controls, SQLite Room sync, and localized database schemas.
 publishDate: 'Dec 28 2023'
 seo:
   image:
     src: '../../assets/images/project-6.jpg'
+    alt: InterData Android Application Preview
 ---
 
-![Project preview](../../assets/images/project-6.jpg)
+![InterData preview](../../assets/images/project-6.jpg)
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+**Project Overview:**  
+**InterData** is a modular enterprise Android application engineered as a technical assessment for **Interrapidisimo**. The application acts as a security, framework parameters, and localized data synchronization manager. It validates user authentication, executes real-time semantic app version comparisons against remote API constraints, and synchronizes dynamic database schemas and localities into a local **Room SQLite** storage engine to guarantee high offline availability.
 
-**Project Overview:**
-FitQuest is an augmented reality (AR) fitness adventure game that revolutionizes traditional workout routines by combining physical exercise with immersive gameplay. This web application encourages users to embark on thrilling adventures, complete challenges, and achieve fitness goals in an engaging virtual environment.
+---
 
-## Objectives
+## Technical Stack & Library Matrix
 
-1. Develop a fitness app that leverages augmented reality to make workouts more enjoyable and interactive.
-2. Integrate real-world locations and landmarks into the game, turning everyday environments into exciting adventure settings.
-3. Motivate users to stay active and maintain a consistent fitness routine by blending physical activity with a captivating storyline.
+| Strategic Area | Applied Technologies |
+|---|---|
+| **Language** | Kotlin 1.9+ |
+| **UI Framework** | Jetpack Compose + Material Design 3 |
+| **Architecture** | Multi-Module Clean Architecture + MVVM + Repository Pattern |
+| **Dependency Injection** | Hilt |
+| **Persistence** | Room Database (SQLite Entity & Schema Mapping) |
+| **Networking** | Retrofit 2 + OkHttp (Custom Headers & Payload Interceptors) |
+| **Asynchronous Stream** | Kotlin Coroutines + Flow / StateFlow |
+| **Layout Optimization** | Compose Intrinsic Measurements (`IntrinsicSize.Max`) |
 
-## Features
+---
 
-1. **Augmented Reality Workouts:**
+## Multi-Module Dependency Architecture
 
-- FitQuest utilizes AR technology to overlay game elements onto the real-world environment, creating an immersive and dynamic workout experience.
-- Users engage in exercises that align with the game's storyline while interacting with virtual elements superimposed on their surroundings.
+To ensure strict separation of concerns, rapid incremental compilation, and modular reuse, the project is physically separated into independent Gradle modules:
 
-2. **Interactive Storyline and Challenges:**
+<pre style="white-space: pre; font-family: monospace; font-size: 0.85rem; line-height: 1.4; overflow-x: auto; background: #0d1117; color: #e6edf3; padding: 1rem; border: 1px solid #30363d; border-radius: 8px;">
+app ──> presentation ──> usecase ──> repository ──┬──> datasource ──> network
+                                                  └──> database
+</pre>
 
-- The app features an adventure-driven storyline where users embark on quests and missions to complete fitness challenges.
-- Challenges include cardio exercises, strength training, and flexibility workouts, seamlessly integrated into the game's narrative.
+### Module Dependencies Representation (`build.gradle.kts`)
 
-3. **Real-World Landmarks Integration:**
+Unlike monolithic applications, module isolation is strictly governed at the compilation layer:
 
-- FitQuest incorporates real-world landmarks and locations as key elements in the game, turning parks, streets, and other environments into virtual fitness arenas.
-- Users explore these locations while completing fitness challenges and unlocking new levels.
+```kotlin
+// Inside :presentation module build.gradle.kts
+dependencies {
+    implementation(project(":usecase"))
+}
 
-4. **Multiplayer Mode and Team Challenges:**
+// Inside :repository module build.gradle.kts
+dependencies {
+    implementation(project(":datasource"))
+    implementation(project(":network"))
+    implementation(project(":database"))
+}
 
-- Users can connect with friends or join teams to participate in multiplayer challenges.
-- Team-based missions encourage collaboration and friendly competition, enhancing the social aspect of fitness.
+## GitFlow Strategy & Workflow Management
 
-5. **Fitness Tracking and Progress Monitoring:**
+To ensure a structured, traceable, and conflict-free development process, the project strictly adopted the **GitFlow** methodology. This strategy allowed complete isolation between in-progress feature development and stable production releases, optimizing the lifecycle of every single feature and bugfix.
 
-- The app includes a comprehensive fitness tracking system that monitors users' progress, calories burned, and achievements.
-- Users can set personalized fitness goals and track their improvement over time.
+---
 
-## Technology Stack
+### Branching Strategy Architecture
 
-- Frontend: Unity for AR game development.
-- Backend: Node.js for handling server-side logic and real-time data synchronization.
-- Database: MongoDB for storing user profiles, fitness data, and game progress.
-- AR Integration: ARCore (Android) and ARKit (iOS) for augmented reality features.
+<pre style="white-space: pre; font-family: monospace; font-size: 0.85rem; line-height: 1.4; overflow-x: auto; background: #0d1117; color: #e6edf3; padding: 1rem; border: 1px solid #30363d; border-radius: 8px;">
+main (Production / Stable Releases)
+  ▲
+  │ (Pull Requests via CI/CD Pipelines)
+  │
+develop (Continuous Feature Integration)
+  ▲
+  ├─► feat/ITD-015-create-splash-screen
+  ├─► feat/ITD-016-create-login-screen
+  ├─► feat/ITD-020-create-unit-tests
+  └─► fix/ITD-023-update-hilt-version
+</pre>
 
-## Outcome
+---
 
-FitQuest has transformed the fitness landscape by merging physical activity with immersive gaming experiences. Users not only enjoy staying active but also find motivation in the storyline and challenges, creating a unique and entertaining approach to maintaining a healthy lifestyle.
+### Key Workflow Benefits
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+1. **Standardized Naming & Issue Tracking Integration:**
+   - Every feature or patch was developed on dedicated atomic branches labeled with their corresponding ticket ID (`feat/ITD-XXX` for features, `fix/ITD-XXX` for bugfixes).
+   - Provided 1:1 traceability between source code, GitHub Pull Requests, and project management tasks.
+
+2. **Modular & Layer Isolation:**
+   - The multi-module project architecture was directly mirrored in the Git workflow. Each module and layer (`presentation`, `usecase`, `repository`, `database`, `network`) had isolated development branches (e.g., `feat/ITD-008-setup-database-module`, `feat/ITD-011-implement-usecase-layer`).
+   - Prevented code collisions and drastically reduced merge conflicts during layer integration.
+
+3. **Mandatory Code Reviews & Pull Requests:**
+   - Direct commits to `main` or `develop` were restricted. Every code increment was integrated exclusively via individual **Pull Requests (#PRs)**, enforcing peer code reviews, automated unit testing, and **CI/CD** execution (`feat/ITD-021-implement-cd-and-ci`).
+
+4. **Production Stability (`main` vs `develop`):**
+   - The `main` branch remained pristine, representing production-ready releases at all times.
+   - The `develop` branch acted as the central integration bus for incremental feature merging, ensuring incomplete work never degraded release stability.
