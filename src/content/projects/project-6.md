@@ -39,23 +39,6 @@ app ──> presentation ──> usecase ──> repository ──┬──> dat
                                                   └──> database
 </pre>
 
-### Module Dependencies Representation (`build.gradle.kts`)
-
-Unlike monolithic applications, module isolation is strictly governed at the compilation layer:
-
-```kotlin
-// Inside :presentation module build.gradle.kts
-dependencies {
-    implementation(project(":usecase"))
-}
-
-// Inside :repository module build.gradle.kts
-dependencies {
-    implementation(project(":datasource"))
-    implementation(project(":network"))
-    implementation(project(":database"))
-}
-
 ## GitFlow Strategy & Workflow Management
 
 To ensure a structured, traceable, and conflict-free development process, the project strictly adopted the **GitFlow** methodology. This strategy allowed complete isolation between in-progress feature development and stable production releases, optimizing the lifecycle of every single feature and bugfix.
@@ -95,3 +78,20 @@ develop (Continuous Feature Integration)
 4. **Production Stability (`main` vs `develop`):**
    - The `main` branch remained pristine, representing production-ready releases at all times.
    - The `develop` branch acted as the central integration bus for incremental feature merging, ensuring incomplete work never degraded release stability.
+
+### Module Dependencies Representation (`build.gradle.kts`)
+
+Unlike monolithic applications, module isolation is strictly governed at the compilation layer:
+
+```kotlin
+// Inside :presentation module build.gradle.kts
+dependencies {
+    implementation(project(":usecase"))
+}
+
+// Inside :repository module build.gradle.kts
+dependencies {
+    implementation(project(":datasource"))
+    implementation(project(":network"))
+    implementation(project(":database"))
+}
