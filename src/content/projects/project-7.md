@@ -1,62 +1,104 @@
 ---
-title: CryptoTrader - Cryptocurrency Portfolio Manager
-description: CryptoTrader Dashboard is a comprehensive web application designed to empower cryptocurrency enthusiasts with tools to manage and optimize their digital asset portfolios.
+title: 'iBank: Secure Mobile Banking App'
+description: A comprehensive, multi-module Android banking application built as a technical assessment for Stori, featuring Clean Architecture, MVVM, Room persistence, Jetpack Compose, and bi-directional internationalization.
 publishDate: 'Jan 10 2026'
 isFeatured: true
 seo:
   image:
     src: '../../assets/images/project-7.jpg'
+    alt: iBank Android Mobile Application Preview
 ---
 
-![Project preview](../../assets/images/project-7.jpg)
+![iBank preview](../../assets/images/project-7.jpg)
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+**Project Overview:**  
+**iBank** is a high-security, feature-rich Android mobile banking application engineered as a technical assessment for **Stori**. Built using modern Android execution standards, multi-module Clean Architecture, and MVVM, the platform supports complete user onboarding (including identity photo capture), secure authentication, real-time balance tracking, transaction histories, instant balance recharges, and peer-to-peer transfers to friends.
 
-**Project Overview:**
-CryptoTrader Dashboard is a comprehensive web application designed to empower cryptocurrency enthusiasts with tools to manage and optimize their digital asset portfolios. By providing real-time market data, analytics, and portfolio tracking, the dashboard offers a seamless experience for users to monitor and enhance their cryptocurrency investments.
+---
 
-## Objectives
+## Technical Stack & Engineering Highlights
 
-1. Develop a user-friendly and feature-rich dashboard that consolidates real-time data from various cryptocurrency exchanges.
-2. Provide tools for users to analyze market trends, track their portfolio performance, and make informed investment decisions.
-3. Create a secure and efficient platform that ensures users have a holistic view of their cryptocurrency holdings.
+| Category | Technology & Libraries |
+|---|---|
+| **Language** | Kotlin 1.9+ |
+| **UI Framework** | Jetpack Compose (Material Design 3) |
+| **Architecture** | Clean Architecture + MVVM Pattern |
+| **Dependency Injection** | Hilt |
+| **Persistence** | Room Database (*Single Source of Truth*) |
+| **Networking** | Retrofit 2 + OkHttp Interceptors |
+| **Asynchronous Stream** | Kotlin Coroutines + Flow / StateFlow |
+| **Internationalization** | Multi-language Support (English & Spanish) |
+| **CI/CD Integration** | Automated Build & Test Pipelines |
+| **Backend Integration** | Firebase Services |
 
-## Features
+---
 
-1. **Multi-Exchange Integration:**
+## Architecture & Modular Isolation
 
-- CryptoTrader Dashboard aggregates data from multiple cryptocurrency exchanges, allowing users to view their entire portfolio in one centralized location.
-- Real-time updates provide the latest market prices, trading volumes, and order book data.
+The application strictly adheres to **Clean Architecture** and **SOLID principles** (particularly the Single Responsibility Principle). Code components are organized across specialized modules to ensure high testability and scalability:
 
-2. **Portfolio Analytics:**
+<pre style="white-space: pre; font-family: monospace; font-size: 0.85rem; line-height: 1.4; overflow-x: auto; background: #0d1117; color: #e6edf3; padding: 1rem; border: 1px solid #30363d; border-radius: 8px;">
+presentation (Compose UI) ──> usecase ──> repository ──┬──> datasource ──> network
+                                                       └──> database
+</pre>
 
-- Users can analyze their portfolio's performance through interactive charts and graphs.
-- The dashboard offers insights into historical performance, asset allocation, and profit/loss over time.
+### Core Modules
 
-3. **Risk Management Tools:**
+1. **`app`**: Application entry point, Hilt dependency graph initialization, and global navigation hosts.
+2. **`network`**: Retrofit configuration, HTTP logging interceptors, REST endpoints, and network payloads.
+3. **`database`**: Room engine setup, DAOs, localized user entities, and secure transaction logs.
+4. **`datasource`**: Concrete implementations isolating local SQLite access and remote server requests.
+5. **`repository`**: Data repository implementations managing local caching and remote sync strategies.
+6. **`usecase`**: Pure Kotlin business logic encapsulating banking rules (e.g., balance validation, transfer execution).
+7. **`presentation`**: UI themes, design tokens, color palettes, localized strings (i18n), and Compose UI components.
 
-- Advanced risk management tools help users assess the volatility and potential risks associated with their cryptocurrency investments.
-- Users receive alerts for significant market fluctuations or changes in their portfolio value.
+---
 
-4. **Automated Transaction Tracking:**
+## Key Functional Capabilities
 
-- The dashboard automatically tracks and records users' cryptocurrency transactions, simplifying the process of updating and managing portfolios.
-- Users can categorize transactions, add notes, and maintain a comprehensive transaction history.
+1. **Streamlined Onboarding & KYC Capture:**
+   - Account creation flow collecting personal identity data with integrated camera capture for photo verification.
 
-5. **News and Market Insights:**
+2. **Session-Aware Authentication:**
+   - Auto-routing splash screen directing active sessions straight to the home dashboard or enforcing secure login.
 
-- A dedicated section provides real-time news and market insights relevant to users' cryptocurrency holdings.
-- Users can stay informed about market trends, regulatory developments, and news affecting their investment decisions.
+3. **Financial Movements & Account Balance:**
+   - Real-time balance calculations, detailed ledger transaction history, and detailed receipt views.
 
-## Technology Stack
+4. **Instant Balance Recharges & P2P Transfers:**
+   - Direct balance top-ups and peer-to-peer money transfers to friends with validation rules and instant confirmation screens.
 
-- Frontend: React for a responsive and interactive user interface.
-- Backend: Django for server-side logic and API integration.
-- Database: PostgreSQL for efficient storage and retrieval of portfolio and market data.
-- API Integration: Integration with cryptocurrency exchange APIs for real-time market data.
+5. **Type-Safe Compose Navigation & Decoupled State:**
+   - Screens receive immutable data classes for navigation parameters, isolating individual composables from `NavHostController` instances.
 
-## Outcome
+6. **Full Internationalization (i18n):**
+   - Seamless native translation support for both **English** and **Spanish**, automatically adapting to system settings.
 
-CryptoTrader Dashboard has become a trusted companion for cryptocurrency investors, offering a consolidated and user-friendly platform for managing their portfolios. The robust analytics, real-time market data, and risk management tools empower users to make informed decisions and navigate the dynamic world of cryptocurrency with confidence.
+---
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+## Project Structure Layout
+
+<pre style="white-space: pre; font-family: monospace; font-size: 0.8rem; line-height: 1.35; overflow-x: auto; background: #0d1117; color: #e6edf3; padding: 1rem; border: 1px solid #30363d; border-radius: 8px;">
+iBank/
+├── app/          # Application setup, Hilt graph & Main Activity
+├── network/      # Retrofit services, HTTP interceptors & DTOs
+├── database/     # Room configuration, DAOs & Entities
+├── datasource/   # Remote and Local Data Source implementations
+├── repository/   # Repository contracts & data arbitrators
+├── usecase/      # Isolated financial business logic
+├── presentation/ # Jetpack Compose UI, Themes, i18n resources & navigation
+└── build.gradle  # Root Gradle dependency configuration
+</pre>
+
+---
+
+## Testing Strategy & Quality Assurance
+
+The codebase includes test suites designed to safeguard critical business transactions:
+
+```bash
+# Execute local unit tests across UseCases, Repositories, and ViewModels
+./gradlew test
+
+# Execute instrumented UI and Room Database integration tests
+./gradlew connectedAndroidTest
