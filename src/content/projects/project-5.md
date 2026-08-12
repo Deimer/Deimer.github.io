@@ -1,62 +1,106 @@
 ---
-title: 'PixelPerfect Art Gallery'
-description: PixelPerfect Art Gallery is an innovative online platform that transcends traditional art exhibition spaces.
+title: 'Multi-Module Activity Navigation: Circular Dependency Decoupling'
+description: An architectural sample demonstrating cross-module navigation between decoupled Android feature modules using explicit Intent contracts, interface abstractions, and deep links.
 publishDate: 'Oct 25 2023'
 isFeatured: true
 seo:
   image:
     src: '../../assets/images/project-5.jpg'
+    alt: Multi-Module Navigation Architecture Preview
 ---
 
 ![Project preview](../../assets/images/project-5.jpg)
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+**Project Overview:**  
+**Multi-Module Activity Navigation Sample** is an architectural proof-of-concept created by **David Vávra** (Google Developer Expert for Android). The repository addresses one of the most critical challenges in multi-module Android development: **navigating between feature modules without creating circular dependencies or breaking layer encapsulation.**
 
-**Project Overview:**
-PixelPerfect Art Gallery is an innovative online platform that transcends traditional art exhibition spaces. This web application is dedicated to showcasing and celebrating pixel art in the form of Non-Fungible Tokens (NFTs), providing artists with a digital canvas to display their unique creations while ensuring secure ownership through blockchain technology.
+---
 
-## Objectives
+## Technical Stack & Architectural Core
 
-1. Create an immersive online gallery experience specifically tailored for pixel art enthusiasts and NFT collectors.
-2. Utilize blockchain technology to authenticate and secure ownership of digital artworks, ensuring a transparent and tamper-proof art marketplace.
-3. Foster a community of digital artists and art collectors, providing a platform for collaboration, appreciation, and exchange.
+| Category | Technology & Concepts |
+|---|---|
+| **Language** | Kotlin 1.9+ |
+| **Platform** | Android SDK |
+| **Architecture** | Multi-Module Clean Architecture |
+| **Navigation Pattern** | Intent Contracts / Deep Linking / Navigation Interfaces |
+| **Key Objective** | Zero compile-time coupling between sibling feature modules |
 
-## Features
+---
 
-1. **NFT Art Exhibition:**
+## The Circular Dependency Challenge
 
-- PixelPerfect features a curated exhibition of pixel art NFTs, showcasing a diverse range of styles, themes, and techniques.
-- Users can explore and appreciate the intricate details of each digital artwork in a visually stunning online gallery.
+In a modularized Android codebase, independent feature modules (e.g., `:feature_first` and `:feature_second`) must not depend directly on each other (`:feature_first` $\to$ `:feature_second` and `:feature_second` $\to$ `:feature_first`). Direct references prevent build systems like Gradle from resolving compilation graphs, leading to circular dependency errors and monolithic coupling.
 
-2. **Blockchain Authentication:**
+<pre style="white-space: pre; font-family: monospace; font-size: 0.85rem; line-height: 1.4; overflow-x: auto; background: #0d1117; color: #e6edf3; padding: 1rem; border: 1px solid #30363d; border-radius: 8px;">
+                     [ INVALID CIRCULAR DEPENDENCY ]
+                    
+    +------------------+                    +------------------+
+    |  :feature_first  | --------(X)------> | :feature_second  |
+    +------------------+ <-------(X)------- +------------------+
+</pre>
 
-- Each pixel art piece is tokenized as an NFT on a blockchain, ensuring authenticity, provenance, and secure ownership.
-- Users can view the blockchain records to verify the origin and history of the digital artworks.
+---
 
-3. **Virtual Art Auctions:**
+## Decoupled Navigation Pattern
 
-- PixelPerfect hosts virtual art auctions, allowing users to bid on and acquire exclusive pixel art NFTs.
-- The auction platform provides a dynamic and engaging environment for art enthusiasts and collectors.
+To resolve this constraint, navigation routes are abstracted into a common `:navigation` contract module. Sibling feature modules only interact with contracts, while the top-level `:app` module binds implementation details at runtime.
 
-4. **Community Collaboration Spaces:**
+<pre style="white-space: pre; font-family: monospace; font-size: 0.85rem; line-height: 1.4; overflow-x: auto; background: #0d1117; color: #e6edf3; padding: 1rem; border: 1px solid #30363d; border-radius: 8px;">
+                         +------------------+
+                         |       :app       |
+                         |  (Binds Contracts|
+                         |   & Navigation)  |
+                         +------------------+
+                           /              \
+                          /                \
+                         v                  v
+              +------------------+    +------------------+
+              |  :feature_first  |    | :feature_second  |
+              +------------------+    +------------------+
+                         \                  /
+                          \                /
+                           v              v
+                         +------------------+
+                         |   :navigation    |
+                         | (Intent Contracts|
+                         |  & Route Models) |
+                         +------------------+
+</pre>
 
-- Dedicated community spaces allow artists to connect, collaborate, and showcase their creative process.
-- Users can discuss techniques, share insights, and even collaborate on pixel art projects within the PixelPerfect community.
+---
 
-5. **Interactive Pixel Art Creation Workshop:**
+## Technical Features & Implementation Strategies
 
-- PixelPerfect provides a virtual workshop where users can create their own pixel art and potentially tokenize their creations as NFTs.
-- Artists can share their works with the community or submit them for consideration in future exhibitions.
+1. **Navigation Contracts Module (`:navigation`):**
+   - Declares pure Kotlin interfaces, explicit `Intent` builders, and destination routes without pulling in feature implementation dependencies.
 
-## Technology Stack
+2. **Decoupled Feature Modules (`:feature_first`, `:feature_second`):**
+   - Each feature encapsulates its own `Activity` or UI controllers.
+   - Triggers cross-module navigation by invoking contracts exposed by `:navigation`.
 
-- Frontend: Angular for a dynamic and responsive user interface.
-- Backend: Node.js for handling server-side logic and API integration.
-- Database: Ethereum blockchain for storing NFT ownership and transaction details.
-- Smart Contracts: Solidity for developing blockchain smart contracts.
+3. **Runtime Inversion of Control (`:app`):**
+   - The main `:app` module depends on all feature modules and the navigation layer. It wires navigation implementations and resolves target `Activity` classes dynamically.
 
-## Outcome
+4. **Deep Link / Implicit Intent Abstraction:**
+   - Navigates seamlessly via URI schemes or dynamic intent actions, ensuring feature modules remain completely ignorant of target class references.
 
-PixelPerfect Art Gallery has successfully created a digital haven for pixel art enthusiasts, providing a secure and engaging platform for artists and collectors alike. The integration of blockchain technology ensures transparency and authenticity in the world of digital art, fostering a vibrant community that appreciates the uniqueness and creativity of pixel art NFTs.
+---
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+## Project Structure Layout
+
+<pre style="white-space: pre; font-family: monospace; font-size: 0.8rem; line-height: 1.35; overflow-x: auto; background: #0d1117; color: #e6edf3; padding: 1rem; border: 1px solid #30363d; border-radius: 8px;">
+root/
+├── app/                  # Main entry point; builds final dependency graph
+├── navigation/           # Shared navigation contracts, route definitions & Intent interfaces
+├── feature_first/        # Isolated Feature 1 (FirstActivity & presentation logic)
+└── feature_second/       # Isolated Feature 2 (SecondActivity & presentation logic)
+</pre>
+
+---
+
+## Key Benefits
+
+- **Faster Build Times:** Incremental Gradle compilations are significantly accelerated since feature modules build in parallel.
+- **Strict Encapsulation:** Features can be added, refactored, or isolated without breaking sibling components.
+- **Reusability & Scalability:** Navigation contracts serve as a clean API surface for enterprise-grade Android applications.
