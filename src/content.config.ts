@@ -17,7 +17,7 @@ const seoSchema = (image: ImageFunction) =>
     });
 
 const blog = defineCollection({
-    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
+    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/experience' }),
     schema: ({ image }) =>
         z.object({
             title: z.string(),

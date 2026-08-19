@@ -9,33 +9,33 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../../utils/data-utils';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-    const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
-    const tags = getAllTags(posts);
+    const experiences = (await getCollection('experience')).sort(sortItemsByDateDesc);
+    const tags = getAllTags(experiences);
 
     return tags.flatMap((tag) => {
-        const filteredPosts = getPostsByTag(posts, tag.id);
-        return paginate(filteredPosts, {
+        const filteredExperiences = getPostsByTag(experiences, tag.id);
+        return paginate(filteredExperiences, {
             params: { id: tag.id },
             pageSize: siteConfig.postsPerPage || 4
         });
     });
 }
 
-type Props = { page: Page<CollectionEntry<'blog'>> };
+type Props = { page: Page<CollectionEntry<'experience'>> };
 
 const { page } = Astro.props;
-const blog = page.data;
+const experiences = page.data;
 const params = Astro.params;
-const allPosts = await getCollection('blog');
-const allTags = getAllTags(allPosts);
+const allExperiences = await getCollection('experience');
+const allTags = getAllTags(allExperiences);
 const currentTag = allTags.find((tag) => {
     return tag.id === params.id;
 });
 ---
 
-<BaseLayout title={`Posts Tagged ${currentTag?.name}`} description={`Explore a curated collection of blog posts under ${currentTag?.name}`} showHeader={false}>
-    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">Posts Tagged "{currentTag?.name}"</h1>
-    {blog.map((post) => <PostPreview post={post} class="mb-10 sm:mb-12" />)}
+<BaseLayout title={`Entries Tagged ${currentTag?.name}`} description={`Explore work experience entries tagged under ${currentTag?.name}`} showHeader={false}>
+    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">Entries Tagged "{currentTag?.name}"</h1>
+    {experiences.map((post) => <PostPreview post={post} class="mb-10 sm:mb-12" />)}
     <Pagination page={page} class="my-16 sm:my-24" />
     <Subscribe class="my-16 sm:my-24" />
 </BaseLayout>

@@ -4,15 +4,15 @@ import siteConfig from '../data/site-config.ts';
 import { sortItemsByDateDesc } from '../utils/data-utils.ts';
 
 export async function GET(context) {
-    const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
+    const experiences = (await getCollection('experience')).sort(sortItemsByDateDesc);
     return rss({
         title: siteConfig.title,
         description: siteConfig.description,
         site: context.site,
-        items: posts.map((item) => ({
+        items: experiences.map((item) => ({
             title: item.data.title,
             description: item.data.excerpt,
-            link: `/blog/${item.id}/`,
+            link: `/experience/${item.id}/`,
             pubDate: item.data.publishDate
         }))
     });
