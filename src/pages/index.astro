@@ -8,7 +8,7 @@ import siteConfig from '../data/site-config';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { sortItemsByDateDesc } from '../utils/data-utils';
 
-const experiences = (await getCollection('experience')).sort(sortItemsByDateDesc);
+const experiences = (await getCollection('experiences')).sort(sortItemsByDateDesc);
 const featuredExperiences = experiences.filter(({ data }) => data.isFeatured);
 
 const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
@@ -34,11 +34,11 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
         featuredExperiences?.length > 0 && (
             <div class="mb-16 sm:mb-24">
                 <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Work Experience</h2>
-                {featuredExperiences.map((experience) => (
-                    <PostPreview post={experience} class="mb-10 sm:mb-12" headingLevel="h3" />
+                {featuredExperiences.map((experiences) => (
+                    <PostPreview post={experiences} class="mb-10 sm:mb-12" headingLevel="h3" />
                 ))}
                 <div class="mt-12 sm:mt-16">
-                    <Button href="/experience">View All Experience</Button>
+                    <Button href="/experiences">View All Experiences</Button>
                 </div>
             </div>
         )

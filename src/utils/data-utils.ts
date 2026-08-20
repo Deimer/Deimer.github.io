@@ -1,11 +1,11 @@
 import { type CollectionEntry } from 'astro:content';
 import { slugify } from './common-utils';
 
-export function sortItemsByDateDesc(itemA: CollectionEntry<'experience' | 'projects'>, itemB: CollectionEntry<'experience' | 'projects'>) {
+export function sortItemsByDateDesc(itemA: CollectionEntry<'experiences' | 'projects'>, itemB: CollectionEntry<'experiences' | 'projects'>) {
     return new Date(itemB.data.publishDate).getTime() - new Date(itemA.data.publishDate).getTime();
 }
 
-export function getAllTags(posts: CollectionEntry<'experience'>[]) {
+export function getAllTags(posts: CollectionEntry<'experiences'>[]) {
     const tags: string[] = [...new Set(posts.flatMap((post) => post.data.tags || []).filter(Boolean))];
     return tags
         .map((tag) => {
@@ -19,7 +19,7 @@ export function getAllTags(posts: CollectionEntry<'experience'>[]) {
         });
 }
 
-export function getPostsByTag(posts: CollectionEntry<'experience'>[], tagId: string) {
-    const filteredPosts: CollectionEntry<'experience'>[] = posts.filter((post) => (post.data.tags || []).map((tag) => slugify(tag)).includes(tagId));
+export function getPostsByTag(posts: CollectionEntry<'experiences'>[], tagId: string) {
+    const filteredPosts: CollectionEntry<'experiences'>[] = posts.filter((post) => (post.data.tags || []).map((tag) => slugify(tag)).includes(tagId));
     return filteredPosts;
 }

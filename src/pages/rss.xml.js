@@ -4,7 +4,7 @@ import siteConfig from '../data/site-config.ts';
 import { sortItemsByDateDesc } from '../utils/data-utils.ts';
 
 export async function GET(context) {
-    const experiences = (await getCollection('experience')).sort(sortItemsByDateDesc);
+    const experiences = (await getCollection('experiences')).sort(sortItemsByDateDesc);
     return rss({
         title: siteConfig.title,
         description: siteConfig.description,
@@ -12,7 +12,7 @@ export async function GET(context) {
         items: experiences.map((item) => ({
             title: item.data.title,
             description: item.data.excerpt,
-            link: `/experience/${item.id}/`,
+            link: `/experiences/${item.id}/`,
             pubDate: item.data.publishDate
         }))
     });

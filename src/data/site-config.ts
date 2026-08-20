@@ -25,8 +25,8 @@ const siteConfig: SiteConfig = {
             href: '/projects'
         },
         {
-            text: 'Blog',
-            href: '/blog'
+            text: 'Experiences',
+            href: '/experiences'
         },
         {
             text: 'Tags',
@@ -87,7 +87,7 @@ const siteConfig: SiteConfig = {
             action: '#'
         }
     },
-    postsPerPage: 8,
+    experiencesPerPage: 8,
     projectsPerPage: 8
 };
 

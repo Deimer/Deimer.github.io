@@ -5,7 +5,7 @@ import Subscribe from '../../components/Subscribe.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../utils/data-utils';
 
-const experiences = (await getCollection('experience')).sort(sortItemsByDateDesc);
+const experiences = (await getCollection('experiences')).sort(sortItemsByDateDesc);
 const tags = getAllTags(experiences).sort((tagA, tagB) => {
     const countTagA = getPostsByTag(experiences, tagA.id).length;
     const countTagB = getPostsByTag(experiences, tagB.id).length;

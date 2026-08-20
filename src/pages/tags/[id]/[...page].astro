@@ -9,7 +9,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../../utils/data-utils';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-    const experiences = (await getCollection('experience')).sort(sortItemsByDateDesc);
+    const experiences = (await getCollection('experiences')).sort(sortItemsByDateDesc);
     const tags = getAllTags(experiences);
 
     return tags.flatMap((tag) => {
@@ -21,12 +21,12 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     });
 }
 
-type Props = { page: Page<CollectionEntry<'experience'>> };
+type Props = { page: Page<CollectionEntry<'experiences'>> };
 
 const { page } = Astro.props;
 const experiences = page.data;
 const params = Astro.params;
-const allExperiences = await getCollection('experience');
+const allExperiences = await getCollection('experiences');
 const allTags = getAllTags(allExperiences);
 const currentTag = allTags.find((tag) => {
     return tag.id === params.id;

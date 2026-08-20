@@ -9,7 +9,7 @@ import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 
 export async function getStaticPaths() {
-    const posts = (await getCollection('experience')).sort(sortItemsByDateDesc);
+    const posts = (await getCollection('experiences')).sort(sortItemsByDateDesc);
     const postCount = posts.length;
     return posts.map((post, index) => ({
         params: { id: post.id },
@@ -22,9 +22,9 @@ export async function getStaticPaths() {
 }
 
 type Props = { 
-    post: CollectionEntry<'experience'>; 
-    prevPost: CollectionEntry<'experience'> | null; 
-    nextPost: CollectionEntry<'experience'> | null; 
+    post: CollectionEntry<'experiences'>; 
+    prevPost: CollectionEntry<'experiences'> | null; 
+    nextPost: CollectionEntry<'experiences'> | null; 
 };
 
 const { post, prevPost, nextPost } = Astro.props;
