@@ -1,7 +1,7 @@
 ---
 title: Senior Android Developer at Arkano Software (Client - Yape)
 excerpt: Engineering high-scale fintech solutions for Yape, Peru's premier mobile financial ecosystem. Architecting ultra-reliable, high-concurrency Android modules with Jetpack Compose, Clean Architecture, and advanced state management to support over 15 million active users.
-publishDate: 'Mar 2026 - Present'
+publishDate: 'Mar 2026'
 tags:
   - Jetpack Compose
   - MVI
