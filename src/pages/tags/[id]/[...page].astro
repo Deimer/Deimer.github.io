@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPathsOptions, Page } from 'astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
+import ExperiencePreview from '../../../components/ExperiencePreview.astro';
 import Pagination from '../../../components/Pagination.astro';
-import PostPreview from '../../../components/PostPreview.astro';
 import Subscribe from '../../../components/Subscribe.astro';
 import siteConfig from '../../../data/site-config';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
@@ -35,7 +35,7 @@ const currentTag = allTags.find((tag) => {
 
 <BaseLayout title={`Entries Tagged ${currentTag?.name}`} description={`Explore work experience entries tagged under ${currentTag?.name}`} showHeader={false}>
     <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">Entries Tagged "{currentTag?.name}"</h1>
-    {experiences.map((experience) => <PostPreview post={experience} class="mb-10 sm:mb-12" />)}
+    {experiences.map((experience) => <ExperiencePreview experience={experience} class="mb-10 sm:mb-12" />)}
     <Pagination page={page} class="my-16 sm:my-24" />
     <Subscribe class="my-16 sm:my-24" />
 </BaseLayout>

@@ -2,8 +2,8 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
+import ExperiencePreview from '../../components/ExperiencePreview.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
-import PostPreview from '../../components/PostPreview.astro';
 import Subscribe from '../../components/Subscribe.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
@@ -77,8 +77,8 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).href;
         (prevExperience || nextExperience) && (
             <div class="my-16 sm:my-24">
                 <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Read Next</h2>
-                {nextExperience && <PostPreview post={nextExperience} class="mb-10 sm:mb-12" headingLevel="h3" />}
-                {prevExperience && <PostPreview post={prevExperience} class="mb-10 sm:mb-12" headingLevel="h3" />}
+                {nextExperience && <ExperiencePreview experience={nextExperience} class="mb-10 sm:mb-12" headingLevel="h3" />}
+                {prevExperience && <ExperiencePreview experience={prevExperience} class="mb-10 sm:mb-12" headingLevel="h3" />}
             </div>
         )
     }
