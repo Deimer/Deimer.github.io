@@ -1,12 +1,25 @@
 import { type CollectionEntry } from 'astro:content';
 import { slugify } from './common-utils';
 
-export function sortItemsByDateDesc(itemA: CollectionEntry<'experience' | 'projects'>, itemB: CollectionEntry<'experience' | 'projects'>) {
-    return new Date(itemB.data.publishDate).getTime() - new Date(itemA.data.publishDate).getTime();
+function parseStartDate(dateVal: Date | string | undefined): Date {
+    if (!dateVal) return new Date();
+    if (dateVal instanceof Date) return dateVal;
+    const startDatePart = dateVal.split('-')[0].trim();
+    const parsed = new Date(startDatePart);
+    return isNaN(parsed.getTime()) ? new Date() : parsed;
 }
 
-export function getAllTags(experiences: CollectionEntry<'experience'>[]) {
-    const tags: string[] = [...new Set(experiences.flatMap((experience) => experience.data.tags || []).filter(Boolean))];
+export function sortItemsByDateDesc(
+    itemA: CollectionEntry<'experiences' | 'projects'>,
+    itemB: CollectionEntry<'experiences' | 'projects'>
+) {
+    const dateA = parseStartDate(itemA.data.publishDate);
+    const dateB = parseStartDate(itemB.data.publishDate);
+    return dateB.getTime() - dateA.getTime();
+}
+
+export function getAllTags(experiences: CollectionEntry<'experiences'>[]) {
+    const tags: string[] = [...new Set(experiences.flatMap((exp) => exp.data.tags || []).filter(Boolean))];
     return tags
         .map((tag) => {
             return {
@@ -19,7 +32,9 @@ export function getAllTags(experiences: CollectionEntry<'experience'>[]) {
         });
 }
 
-export function getExperiencesByTag(experiences: CollectionEntry<'experience'>[], tagId: string) {
-    const filteredExperiences: CollectionEntry<'experience'>[] = experiences.filter((experience) => (experience.data.tags || []).map((tag) => slugify(tag)).includes(tagId));
+export function getPostsByTag(experiences: CollectionEntry<'experiences'>[], tagId: string) {
+    const filteredExperiences: CollectionEntry<'experiences'>[] = experiences.filter((exp) =>
+        (exp.data.tags || []).map((tag) => slugify(tag)).includes(tagId)
+    );
     return filteredExperiences;
 }
