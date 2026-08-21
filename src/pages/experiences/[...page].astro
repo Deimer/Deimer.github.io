@@ -10,7 +10,7 @@ import { sortItemsByDateDesc } from '../../utils/data-utils';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     const experiences = (await getCollection('experiences')).sort(sortItemsByDateDesc);
-    return paginate(experiences, { pageSize: siteConfig.postsPerPage || 4 });
+    return paginate(experiences, { pageSize: siteConfig.experiencesPerPage || 4 });
 }
 
 type Props = { page: Page<CollectionEntry<'experiences'>> };

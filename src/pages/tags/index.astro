@@ -3,12 +3,12 @@ import { getCollection } from 'astro:content';
 import ArrowRight from '../../assets/icons/arrow-right.svg';
 import Subscribe from '../../components/Subscribe.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../utils/data-utils';
+import { getAllTags, getExperiencesByTag, sortItemsByDateDesc } from '../../utils/data-utils';
 
-const experiences = (await getCollection('experiences')).sort(sortItemsByDateDesc);
+const experiences = (await getCollection('experience')).sort(sortItemsByDateDesc);
 const tags = getAllTags(experiences).sort((tagA, tagB) => {
-    const countTagA = getPostsByTag(experiences, tagA.id).length;
-    const countTagB = getPostsByTag(experiences, tagB.id).length;
+    const countTagA = getExperiencesByTag(experiences, tagA.id).length;
+    const countTagB = getExperiencesByTag(experiences, tagB.id).length;
     return countTagB - countTagA;
 });
 ---
@@ -21,7 +21,7 @@ const tags = getAllTags(experiences).sort((tagA, tagB) => {
     <h1 class="mb-12 font-serif text-2xl italic sm:mb-16 sm:text-4xl">All Tags</h1>
     {
         tags.map((tag) => {
-            const count = getPostsByTag(experiences, tag.id).length;
+            const count = getExperiencesByTag(experiences, tag.id).length;
             return (
                 <a class="group mb-10 flex items-start justify-between gap-8 sm:mb-12" href={`/tags/${tag.id}`}>
                     <div class="grow">

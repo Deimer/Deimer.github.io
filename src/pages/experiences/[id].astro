@@ -9,27 +9,27 @@ import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 
 export async function getStaticPaths() {
-    const posts = (await getCollection('experiences')).sort(sortItemsByDateDesc);
-    const postCount = posts.length;
-    return posts.map((post, index) => ({
-        params: { id: post.id },
+    const experiences = (await getCollection('experience')).sort(sortItemsByDateDesc);
+    const experienceCount = experiences.length;
+    return experiences.map((experience, index) => ({
+        params: { id: experience.id },
         props: {
-            post,
-            prevPost: index + 1 !== postCount ? posts[index + 1] : null,
-            nextPost: index !== 0 ? posts[index - 1] : null
+            experience,
+            prevExperience: index + 1 !== experienceCount ? experiences[index + 1] : null,
+            nextExperience: index !== 0 ? experiences[index - 1] : null
         }
     }));
 }
 
 type Props = { 
-    post: CollectionEntry<'experiences'>; 
-    prevPost: CollectionEntry<'experiences'> | null; 
-    nextPost: CollectionEntry<'experiences'> | null; 
+    experience: CollectionEntry<'experience'>; 
+    prevExperience: CollectionEntry<'experience'> | null; 
+    nextExperience: CollectionEntry<'experience'> | null; 
 };
 
-const { post, prevPost, nextPost } = Astro.props;
-const { title, publishDate, updatedDate, excerpt, tags = [], seo } = post.data;
-const { Content } = await render(post);
+const { experience, prevExperience, nextExperience } = Astro.props;
+const { title, publishDate, updatedDate, excerpt, tags = [], seo } = experience.data;
+const { Content } = await render(experience);
 
 // Use the configured `site` to generate an absolute URL
 const shareUrl = new URL(Astro.url.pathname, Astro.site).href;
@@ -74,11 +74,11 @@ const shareUrl = new URL(Astro.url.pathname, Astro.site).href;
         </div>
     </article>
     {
-        (prevPost || nextPost) && (
+        (prevExperience || nextExperience) && (
             <div class="my-16 sm:my-24">
                 <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Read Next</h2>
-                {nextPost && <PostPreview post={nextPost} class="mb-10 sm:mb-12" headingLevel="h3" />}
-                {prevPost && <PostPreview post={prevPost} class="mb-10 sm:mb-12" headingLevel="h3" />}
+                {nextExperience && <PostPreview post={nextExperience} class="mb-10 sm:mb-12" headingLevel="h3" />}
+                {prevExperience && <PostPreview post={prevExperience} class="mb-10 sm:mb-12" headingLevel="h3" />}
             </div>
         )
     }
