@@ -13,7 +13,7 @@ seo:
   title: Desarrollador de software - Palmas Montecarmelo SA | Deymer Villa
   description: Technical overview of Deymer Villa's software engineering role at Palmas Montecarmelo SA, developing Android applications and C#/Visual Basic web APIs.
   image:
-    src: '../../assets/images/post-15.jpg'
+    src: '../../assets/images/post-14.jpg'
     alt: Software Engineering at Palmas Montecarmelo SA
 ---
 
