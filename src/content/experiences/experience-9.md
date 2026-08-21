@@ -1,7 +1,7 @@
 ---
 title: Junior Android Developer at Easy Solutions (Cyxtera)
 excerpt: Developed security-focused Android applications protecting user transactions. Implemented biometric face and gesture recognition libraries, robust unit testing suites, and strict client-side data protection protocols.
-publishDate: 'Mar 2018 - Sep 2018'
+publishDate: 'Mar 2018 - Sep 2018 (7 mos)'
 tags:
   - Java
   - Android SDK

@@ -1,7 +1,7 @@
 ---
 title: Web & Mobile Developer at Ideamos Web
 excerpt: Developed foundational enterprise web applications and native Android prototypes. Built custom backend services with PHP/Laravel, managed MySQL relational databases, and created responsive frontend interfaces.
-publishDate: 'Apr 2016 - Aug 2017'
+publishDate: 'Apr 2016 - Aug 2017 (1 yr 5 mos)'
 tags:
   - Java
   - Android SDK

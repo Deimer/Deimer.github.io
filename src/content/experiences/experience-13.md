@@ -1,7 +1,7 @@
 ---
 title: Desarrollador Web y Movil at DedopinWeb
 excerpt: Engineered foundational web and cross-platform mobile solutions. Developed backend web applications with Laravel, implemented PhoneGap hybrid modules, and integrated Node.js scripts for real-time web services.
-publishDate: 'Dec 2014 - Jun 2015'
+publishDate: 'Dec 2014 - Jun 2015 (7 mos)'
 tags:
   - Android SDK
   - Phonegap

@@ -1,7 +1,7 @@
 ---
 title: SSR Android Developer at QuQo
 excerpt: Led architectural migration from MVP to MVVM for QuQo's commercial ecosystem. Implemented real-time GPS pilot tracking, RxAndroid streams, and secure repository patterns for retail distribution.
-publishDate: 'Aug 2019 - Jan 2020'
+publishDate: 'Aug 2019 - Jan 2020 (6 mos)'
 tags:
   - Kotlin
   - MVVM

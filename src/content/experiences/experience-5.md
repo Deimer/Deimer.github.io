@@ -1,7 +1,7 @@
 ---
 title: Senior Android Developer at RobinFood
 excerpt: Engineered high-throughput mobile order processing and Cloud-Kitchen applications for Latin America's largest ghost-kitchen ecosystem. Implemented Dagger, Clean Architecture, and Flutter hybrid modules.
-publishDate: 'Jan 2020 - Jan 2021'
+publishDate: 'Jan 2020 - Jan 2021 (1 yr 1 mo)'
 tags:
   - Kotlin
   - Clean Architecture

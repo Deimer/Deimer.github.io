@@ -22,7 +22,7 @@ const experiences = defineCollection({
         z.object({
             title: z.string(),
             excerpt: z.string().optional(),
-            publishDate: z.coerce.date(),
+            publishDate: z.string(),
             updatedDate: z.coerce.date().optional(),
             isFeatured: z.boolean().default(false),
             tags: z.array(z.string()).default([]),
