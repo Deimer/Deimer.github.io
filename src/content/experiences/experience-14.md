@@ -17,7 +17,7 @@ seo:
     alt: Software Engineering at Palmas Montecarmelo SA
 ---
 
-![Software Engineering at Palmas Montecarmelo SA](../../assets/images/post-15.jpg)
+![Software Engineering at Palmas Montecarmelo SA](../../assets/images/post-14.jpg)
 
 ## About Palmas Montecarmelo SA
 
