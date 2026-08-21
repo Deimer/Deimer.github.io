@@ -1,7 +1,7 @@
 ---
 title: Desarrollador de software at Palmas Montecarmelo SA
 excerpt: Developed early native Android applications and supporting web platform APIs. Engineered server-side web services using C# and Visual Basic to enable seamless connectivity between mobile clients and enterprise systems.
-publishDate: 'Aug 2013 - Nov 2014 (1 yr 4 mos)'
+publishDate: 'Aug 2013 - Nov 2014'
 tags:
   - Android SDK
   - Java

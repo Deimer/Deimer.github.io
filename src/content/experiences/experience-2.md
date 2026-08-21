@@ -1,7 +1,7 @@
 ---
 title: Senior Android Developer at Apply Digital
 excerpt: Engineering enterprise-grade mobile applications and digital products for high-growth global clients. Architected modular Android solutions leveraging Jetpack Compose, Clean Architecture, and MVI pattern to deliver highly scalable and resilient mobile apps.
-publishDate: 'Nov 2024 - Mar 2026 (1 yr 5 mos)'
+publishDate: 'Nov 2024 - Mar 2026'
 tags:
   - Jetpack Compose
   - Clean Architecture

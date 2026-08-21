@@ -1,7 +1,7 @@
 ---
 title: Senior Android Developer at Ualá
 excerpt: Engineering mobile financial technologies for one of Latin America's leading fintech unicorns. Built scalable, high-concurrency Android features with Jetpack Compose, Clean Architecture, and multi-module design to support millions of active digital banking users.
-publishDate: 'Sep 2022 - Aug 2024 (2 yrs)'
+publishDate: 'Sep 2022 - Aug 2024'
 tags:
   - Kotlin
   - MVVM

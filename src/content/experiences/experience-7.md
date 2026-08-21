@@ -1,7 +1,7 @@
 ---
 title: SSR Android Developer at Teravision Technologies
 excerpt: Developed high-performance native Android applications with custom hardware integrations. Implemented Dagger dependency injection, RxAndroid, and Google Protocol Buffers (Protobuf) for secure, ultra-low-latency Bluetooth communications.
-publishDate: 'Apr 2019 - Jul 2019 (4 mos)'
+publishDate: 'Apr 2019 - Jul 2019'
 tags:
   - Kotlin
   - Java

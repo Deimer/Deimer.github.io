@@ -1,7 +1,7 @@
 ---
 title: Specialist II Android Developer at SQDM
 excerpt: Engineered advanced Android software solutions featuring facial and gesture recognition libraries. Built custom UI widgets, optimized local persistence with Realm Database, and migrated codebases to Kotlin using Clean Architecture and MVVM.
-publishDate: 'Nov 2018 - Apr 2019 (6 mos)'
+publishDate: 'Nov 2018 - Apr 2019'
 tags:
   - Kotlin
   - MVVM

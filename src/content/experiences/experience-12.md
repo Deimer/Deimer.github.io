@@ -1,7 +1,7 @@
 ---
 title: Web & Mobile Developer at Cloudnets S.A.
 excerpt: Developed web applications and native Android prototypes. Architected backend services using PHP and Laravel, designed relational MySQL databases, and built responsive frontend user interfaces.
-publishDate: 'Jul 2015 - Dec 2015 (6 mos)'
+publishDate: 'Jul 2015 - Dec 2015'
 tags:
   - Java
   - Android SDK

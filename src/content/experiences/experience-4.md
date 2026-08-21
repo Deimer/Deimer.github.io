@@ -1,7 +1,7 @@
 ---
 title: Senior Android Developer at CTI Consulting
 excerpt: Architected robust cross-platform and native Android applications for US-based enterprise clients. Implemented Jetpack Navigation, modern state management, dynamic databases, and continuous integration pipelines.
-publishDate: 'Jan 2021 - Sep 2022 (1 yr 9 mos)'
+publishDate: 'Jan 2021 - Sep 2022'
 tags:
   - Kotlin
   - Clean Architecture

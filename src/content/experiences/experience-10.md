@@ -1,7 +1,7 @@
 ---
 title: Junior Android Developer at ITEHL Consulting
 excerpt: Built native Android applications utilizing Java, SQLite, and custom UI components. Managed complete lifecycle releases to the Google Play Store, integrated social network authentication, and designed PHP/Laravel web services.
-publishDate: 'Sep 2017 - Feb 2018 (6 mos)'
+publishDate: 'Sep 2017 - Feb 2018'
 tags:
   - Java
   - Android SDK
