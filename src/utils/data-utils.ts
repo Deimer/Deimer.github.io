@@ -1,5 +1,6 @@
 import { type CollectionEntry } from 'astro:content';
 import { slugify } from './common-utils';
+export const getPostsByTag = getExperiencesByTag;
 
 function parseStartDate(dateVal: Date | string | undefined): Date {
     if (!dateVal) return new Date();
@@ -32,7 +33,7 @@ export function getAllTags(experiences: CollectionEntry<'experiences'>[]) {
         });
 }
 
-export function getPostsByTag(experiences: CollectionEntry<'experiences'>[], tagId: string) {
+export function getExperiencesByTag(experiences: CollectionEntry<'experiences'>[], tagId: string) {
     const filteredExperiences: CollectionEntry<'experiences'>[] = experiences.filter((exp) =>
         (exp.data.tags || []).map((tag) => slugify(tag)).includes(tagId)
     );
